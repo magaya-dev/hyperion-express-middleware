@@ -1,6 +1,6 @@
 module.exports = function (moduleName, args) {
     const database = require('./hyper-api')({
-            module: moduleName,
+            name: moduleName,
             argv: args
         });
     
