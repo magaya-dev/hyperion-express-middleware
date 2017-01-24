@@ -1,11 +1,18 @@
-const hyperion = require('./build/hyperion');
-const dbx = hyperion.connect('livetrack-mobile', process.argv); 
+module.exports = function (moduleName, args) {
+    const database = require('./hyper-api')({
+            module: moduleName,
+            argv: args
+        });
+    
+    return function (request, response, next) {
+        if (!database) {
+            throw new Error('Candela!');
+        }
 
-module.exports = function (request, response, next) {
-    if (!dbx) {
-        throw new Error('Candela!');
-    }
+        request.dbx = database.dbx;
+        request.algorithm = database.algo;
+        request.api = database.api;
 
-    request.dbx = dbx;
-    next();
-}
+        next();
+    };
+};
