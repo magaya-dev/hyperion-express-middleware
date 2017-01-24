@@ -1,7 +1,7 @@
 const addon = require('./bin/hyperion');
 
 module.exports = function ({ name, argv }) {
-    const api = addon.connect(moduleName, process.argv);    
+    const api = addon.connect(name, argv);    
 
     return {
         dbx: api.hyperion,
