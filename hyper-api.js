@@ -199,33 +199,33 @@ class SelectAsync extends AsyncBase  {
     }
 }
 
-function Algorithms(ayncApi) {
+function Algorithms(asyncApi) {
     this.forEach = function (cursor) {
-        return new ForEachAsync(ayncApi, cursor);
+        return new ForEachAsync(asyncApi, cursor);
     }
 
     this.transform = function (cursor) {
-        return new TransformAsync(ayncApi, cursor);
+        return new TransformAsync(asyncApi, cursor);
     }
 
     this.accumulate = function (cursor) {
-        return new AccumulateAsync(ayncApi, cursor);
+        return new AccumulateAsync(asyncApi, cursor);
     }
 
     this.anyOf = function (cursor) {
-        return new AnyOfAsync(ayncApi, cursor);
+        return new AnyOfAsync(asyncApi, cursor);
     }
 
     this.allOf = function (cursor) {
-        return new AllOfAsync(ayncApi, cursor);
+        return new AllOfAsync(asyncApi, cursor);
     }
 
     this.noneOf = function (cursor) {
-        return new NoneOfAsync(ayncApi, cursor);
+        return new NoneOfAsync(asyncApi, cursor);
     }
 
     this.find = function (cursor) {
-        return new FindAsync(ayncApi, cursor);
+        return new FindAsync(asyncApi, cursor);
     }
 
     this.findFirst = function (cursor) {
@@ -233,10 +233,10 @@ function Algorithms(ayncApi) {
     }
 
     this.collect = function (cursor) {
-        return new CollectAsync(ayncApi, cursor);
+        return new CollectAsync(asyncApi, cursor);
     }
 
     this.select = function(cursor, count) {
-        return new SelectAsync(ayncApi, cursor, count);
+        return new SelectAsync(asyncApi, cursor, count);
     }
 }
