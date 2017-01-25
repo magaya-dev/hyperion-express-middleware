@@ -1,17 +1,19 @@
+const database = require('./hyper-api');
+
 module.exports = function (moduleName, args) {
-    const database = require('./hyper-api')({
+    const connection = database({
             name: moduleName,
             argv: args
         });
     
     return function (request, response, next) {
-        if (!database) {
-            throw new Error('Candela!');
+        if (!connection) {
+            throw new Error(`There is no connection to the database for ${moduleName}...`);
         }
 
-        request.dbx = database.dbx;
-        request.algorithm = database.algo;
-        request.api = database.api;
+        request.dbx = connection.dbx;
+        request.algorithm = connection.algo;
+        request.api = connection.api;
 
         next();
     };
