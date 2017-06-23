@@ -199,6 +199,38 @@ class SelectAsync extends AsyncBase  {
     }
 }
 
+class StreamAttachmentAsync  {
+    constructor(asyncApi, attachment) {
+        this.async = asyncApi;
+        this.attachment = attachment;
+    }
+
+    stream(writeStream) {    
+        function writeChunk(resolve, writeStream, data, start) {
+            let size = 4 * 1024; 
+
+            if (start == data.length ) {
+                resolve();
+                return;
+            }
+
+            let end = Math.min(start + size, data.length);
+            let buffer = data.slice(start, end);
+
+            writeStream.write(buffer);
+            process.nextTick(writeChunk, resolve, writeStream, data, end);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.async.getAttachmentContentAsync(
+                this.attachment,
+                (data) => {
+                    writeChunk(resolve, writeStream, data, 0);
+                });
+        });
+    }
+}
+
 function Algorithms(asyncApi) {
     this.forEach = function (cursor) {
         return new ForEachAsync(asyncApi, cursor);
@@ -238,5 +270,9 @@ function Algorithms(asyncApi) {
 
     this.select = function(cursor, count) {
         return new SelectAsync(asyncApi, cursor, count);
+    }
+
+    this.streamAttachmentContent = function(attachment, writeStream) {
+        return new StreamAttachmentAsync(asyncApi, attachment).stream(writeStream);
     }
 }
