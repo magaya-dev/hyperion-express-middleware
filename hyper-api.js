@@ -199,14 +199,14 @@ class SelectAsync extends AsyncBase  {
     }
 }
 
-class StreamAttachmentAsync  {
-    constructor(asyncApi, attachment) {
-        this.async = asyncApi;
-        this.attachment = attachment;
+class StreamAsync {
+    constructor(retriever, resource) {
+        this.retriever = retriever;
+        this.resource = resource;
     }
 
     stream(writeStream) {    
-        function writeChunk(resolve, writeStream, data, start) {
+        function writeChunk(resolve, writeStream, data, start) { 
             let size = 4 * 1024; 
 
             if (start == data.length ) {
@@ -222,12 +222,24 @@ class StreamAttachmentAsync  {
         }
 
         return new Promise((resolve, reject) => {
-            this.async.getAttachmentContentAsync(
-                this.attachment,
+            this.retriever(
+                this.resource,
                 (data) => {
                     writeChunk(resolve, writeStream, data, 0);
                 });
         });
+    }
+}
+
+class StreamAttachmentAsync extends StreamAsync  {
+    constructor(asyncApi, attachment) {
+        super(asyncApi.getAttachmentContentAsync, attachment);
+    }
+}
+
+class StreamDocumentAsync extends StreamAsync  {
+    constructor(asyncApi, document) {
+        super(asyncApi.getDocumentContentAsync, document);
     }
 }
 
@@ -275,4 +287,8 @@ function Algorithms(asyncApi) {
     this.streamAttachmentContent = function(attachment, writeStream) {
         return new StreamAttachmentAsync(asyncApi, attachment).stream(writeStream);
     };
+
+    this.streamDocumentContent = function(document, writeStream) {
+        return new StreamDocumentAsync(asyncApi, document).stream(writeStream);
+    }
 }
