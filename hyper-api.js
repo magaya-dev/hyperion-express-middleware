@@ -209,7 +209,7 @@ class StreamAsync {
         function writeChunk(resolve, writeStream, data, start) { 
             let size = 4 * 1024; 
 
-            if (start == data.length ) {
+            if (!data || start == data.length ) {
                 resolve();
                 return;
             }
