@@ -62,7 +62,7 @@ describe('Hyperion Express Middleware', function () {
             var error;
 
             try {
-                this.iddleware({}, {}, function () {
+                this.middleware({}, {}, function () {
                     expect(true).toBe(false);   // This should not be called
                 });
             } catch (e) {
