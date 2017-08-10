@@ -85,14 +85,16 @@ describe('Hyperion Express Middleware', function () {
 
         it('should populate fields and move on', function () {
             var request = {};
+            var movedOn = false;
 
             this.middleware(request, {}, function () {
-                expect(true).toBe(true);   // This should be called
+                movedOn = true;   // This should be called
             });
 
             expect(request.dbx).toEqual(connection.dbx);
             expect(request.algorithm).toEqual(connection.algorithm);
             expect(request.api).toEqual(connection.connection.livetrack);
+            expect(movedOn).toBe(true);
         });
     });
 });
