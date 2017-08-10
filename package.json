@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node test"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,9 @@
   "homepage": "https://github.com/jcabot21/hyperion-express-middleware#readme",
   "dependencies": {
     "hyperion-node": "https://github.com/magaya-dev/hyperion-node.git"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "mock-require": "^2.0.2"
   }
 }
