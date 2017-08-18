@@ -1,6 +1,6 @@
 {
   "name": "hyperion-express-module",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "description": "An express middleware for hyperion.",
   "private": true,
   "main": "index.js",
