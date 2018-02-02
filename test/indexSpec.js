@@ -2,6 +2,7 @@ const mock = require('mock-require');
 
 describe('Hyperion Express Middleware', function () {
     const moduleName = 'testing';
+    const api = 'livetrack';
     const args = ['test1', 'test2'];
 
     describe('initialization', function () {
@@ -14,10 +15,10 @@ describe('Hyperion Express Middleware', function () {
         });
 
         it('should throw error when no name is provided', function () {
-            var error;
+            let error;
 
             try {
-                const middleware = this.hyperion(undefined, args);
+                const middleware = this.hyperion(undefined, api, args);
             } catch (e) {
                 error = e;
             }
@@ -26,10 +27,10 @@ describe('Hyperion Express Middleware', function () {
         });
 
         it('should throw error when empty name is provided', function () {
-            var error;
+            let error;
 
             try {
-                const middleware = this.hyperion('', args);
+                const middleware = this.hyperion('', api, args);
             } catch (e) {
                 error = e;
             }
@@ -37,12 +38,17 @@ describe('Hyperion Express Middleware', function () {
             expect(error).toBeDefined();    // An error should have been thrown
         });
 
-        it('should initialize when both name and arguments are provied', function () {
-            const middleware = this.hyperion(moduleName, args);
+        it('should initialize when all arguments are provied', function () {
+            const middleware = this.hyperion(moduleName, api, args);
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
 
-        it('should initialize without arguments as long as name is provided', function () {
+        it('should initialize without arguments as long as name and apie are provided', function () {
+            const middleware = this.hyperion(moduleName, api);
+            expect(middleware).toBeDefined();    // middleware should have been initialized to something
+        });
+
+        it('should initialize without api or arguments as long as name is provided', function () {
             const middleware = this.hyperion(moduleName);
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
@@ -55,7 +61,7 @@ describe('Hyperion Express Middleware', function () {
             });
 
             const hyperion = mock.reRequire('../index');
-            this.middleware = hyperion(moduleName, args);
+            this.middleware = hyperion(moduleName, api, args);
         });
 
         it('should throw error when called', function () {
@@ -79,21 +85,36 @@ describe('Hyperion Express Middleware', function () {
         beforeEach(function () {
             mock('hyperion-node', './fakeperion');
 
-            const hyperion = mock.reRequire('../index');
-            this.middleware = hyperion(moduleName, args);
+            this.hyperion = mock.reRequire('../index');
         });
 
         it('should populate fields and move on', function () {
-            var request = {};
-            var movedOn = false;
+            let request = {};
+            let movedOn = false;
+            const middleware = this.hyperion(moduleName, api, args);
 
-            this.middleware(request, {}, function () {
+            middleware(request, {}, function () {
                 movedOn = true;   // This should be called
             });
 
             expect(request.dbx).toEqual(connection.dbx);
             expect(request.algorithm).toEqual(connection.algorithm);
             expect(request.api).toEqual(connection.connection.livetrack);
+            expect(movedOn).toBe(true);
+        });
+
+        it('should leave api empty when none is provided', function () {
+            let request = {};
+            let movedOn = false;
+            const middleware = this.hyperion(moduleName);
+
+            middleware(request, {}, function () {
+                movedOn = true;   // This should be called
+            });
+
+            expect(request.dbx).toEqual(connection.dbx);
+            expect(request.algorithm).toEqual(connection.algorithm);
+            expect(request.api).toBeUndefined();
             expect(movedOn).toBe(true);
         });
     });

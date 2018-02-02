@@ -1,6 +1,6 @@
 const hyperion = require('hyperion-node');
 
-module.exports = function (moduleName, args) {
+module.exports = function (moduleName, api, args) {
     if (!moduleName) {
         throw new Error('No module name was provided');
     }
@@ -17,7 +17,10 @@ module.exports = function (moduleName, args) {
 
         request.dbx = database.dbx;
         request.algorithm = database.algorithm;
-        request.api = database.connection.livetrack;
+
+        if (api) {
+            request.api = database.connection[api];
+        }
 
         next();
     };

@@ -1,6 +1,6 @@
 {
   "name": "hyperion-express-module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An express middleware for hyperion.",
   "private": true,
   "main": "index.js",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jcabot21/hyperion-express-middleware#readme",
   "dependencies": {
-    "hyperion-node": "git+https://github.com/magaya-dev/hyperion-node.git"
+    "hyperion-node": "git+https://github.com/magaya-dev/hyperion-node.git#develop"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5",
