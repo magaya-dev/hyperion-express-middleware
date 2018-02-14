@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jcabot21/hyperion-express-middleware#readme",
   "dependencies": {
-    "hyperion-node": "git+https://github.com/magaya-dev/hyperion-node.git#develop"
+    "@magaya/hyperion-node": "^0.790.5"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5",
