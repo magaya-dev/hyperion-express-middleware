@@ -1,26 +1,29 @@
 {
-  "name": "hyperion-express-module",
+  "name": "hyperion-express-middleware",
   "version": "0.0.7",
   "description": "An express middleware for hyperion.",
-  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node test"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcabot21/hyperion-express-middleware.git"
+    "url": "git+https://github.com/magaya-dev/hyperion-express-middleware.git"
   },
   "keywords": [
     "hyperion",
-    "livetrack"
+    "magaya",
+    "express"
   ],
   "author": "Magaya Corporation",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/jcabot21/hyperion-express-middleware/issues"
+    "url": "https://github.com/magaya-dev/hyperion-express-middleware.git/issues"
   },
-  "homepage": "https://github.com/jcabot21/hyperion-express-middleware#readme",
+  "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
   "dependencies": {
     "@magaya/hyperion-node": "^0.790.5"
   },
