@@ -7,7 +7,7 @@ describe('Hyperion Express Middleware', function () {
 
     describe('initialization', function () {
         beforeEach(function () {
-            mock('hyperion-node', function () {
+            mock('@magaya/hyperion-node', function () {
                 return undefined;
             });
 
@@ -56,7 +56,7 @@ describe('Hyperion Express Middleware', function () {
 
     describe('unable to connect to hyperion', function () {
         beforeEach(function () {
-            mock('hyperion-node', function () {
+            mock('@magaya/hyperion-node', function () {
                 return undefined;
             });
 
@@ -83,7 +83,7 @@ describe('Hyperion Express Middleware', function () {
         const connection = require('./fakeperion')();
 
         beforeEach(function () {
-            mock('hyperion-node', './fakeperion');
+            mock('@magaya/hyperion-node', './fakeperion');
 
             this.hyperion = mock.reRequire('../index');
         });

@@ -1,4 +1,4 @@
-const hyperion = require('hyperion-node');
+const hyperion = require('@magaya/hyperion-node');
 
 module.exports = function (moduleName, api, args) {
     if (!moduleName) {
