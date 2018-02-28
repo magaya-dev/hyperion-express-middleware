@@ -1,4 +1,4 @@
-const debug = require('debug')('hyperion-express-module'); debug('Loaded debug...');
+const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
 module.exports = function (moduleName, api, args) {
