@@ -4,7 +4,8 @@
 Node package containing hyperion middleware for express.
 
 ```js
-const hyperion = require('@magaya/hyperion-express-middleware')('appName', 'apiName', argv);
+// process.argv needs to include an entry '--mag-config-file'
+const hyperion = require('@magaya/hyperion-express-middleware')('appName', 'apiName', process.argv);
 const app = require('express')();
 
 app.use(hyperion);
