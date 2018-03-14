@@ -8,8 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Jasmine Tests",
-            "program": "${workspaceRoot}\\node_modules\\jasmine-node\\bin\\jasmine-node",
-            "args": ["test"]
+            "program": "${workspaceRoot}\\node_modules\\jasmine\\bin\\jasmine"
         }
     ]
 }
