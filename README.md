@@ -4,8 +4,9 @@
 Node package containing hyperion middleware for express.
 
 ```js
-// process.argv needs to include an entry '--mag-config-file'
-const hyperion = require('@magaya/hyperion-express-middleware')('appName', 'apiName', process.argv);
+// process.argv needs to include an entry '--connection-string'
+// only the arguments array is mandatory
+const hyperion = require('@magaya/hyperion-express-middleware')(process.argv, 'optionalApiName');
 const app = require('express')();
 
 app.use(hyperion);
@@ -21,4 +22,4 @@ router.route('/test').get((request, response) => {
 ```
 
 ## Notes
-The second paramenter (`api`) will define which functions are available on the retreived hyperion instance.
+The second paramenter (`api`) will define which functions are available on the retreived hyperion instance. It is optional.
