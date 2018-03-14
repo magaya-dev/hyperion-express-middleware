@@ -23,3 +23,10 @@ router.route('/test').get((request, response) => {
 
 ## Notes
 The second paramenter (`api`) will define which functions are available on the retreived hyperion instance. It is optional.
+
+## Development
+When using this package for development make sure you include _@magaya/hyperion-node_ in your _devDependencies_ like so:
+
+`npm install @magaya/hyperion-node --save-dev`
+
+Otherwise there will be a runtime failure as hyperion will not be found. In production hyperion will be installed globally.
