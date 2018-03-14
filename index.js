@@ -1,23 +1,16 @@
 const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
-module.exports = function (moduleName, api, args) {
-    if (!moduleName) {
-        throw new Error('No module name was provided');
-    }
-
+module.exports = function (args, api) {
     debug('Trying to connect through addon...');
 
-    const database = hyperion({
-        name: moduleName,
-        argv: args
-    });
+    const database = hyperion(args, api);
 
     debug('Hyperion connected...');
 
     return function (request, response, next) {
         if (!database) {
-            throw new Error(`There is no connection to the database for ${moduleName}`);
+            throw new Error(`there is no connection to the database`);
         }
 
         request.dbx = database.dbx;
