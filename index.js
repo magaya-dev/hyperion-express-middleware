@@ -2,6 +2,11 @@ const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
 module.exports = function (args, api) {
+    if (!args || args.length == 0) {
+        debug('Missing arguments...');
+        throw new Error('invalid args');
+    }
+
     debug('Trying to connect through addon...');
 
     const database = hyperion(args, api);

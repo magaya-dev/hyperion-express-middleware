@@ -14,30 +14,17 @@ describe('Hyperion Express Middleware', function () {
             this.hyperion = mock.reRequire('../index');
         });
 
-        it('should throw error when empty name is provided', function () {
-            let error;
-
-            try {
-                const middleware = this.hyperion('', api, args);
-            } catch (e) {
-                error = e;
-            }
-
-            expect(error).toBeDefined();    // An error should have been thrown
+        it('should throw error when missing argumentts', function () {
+            expect(() => this.hyperion()).toThrowError(Error, 'invalid args');
         });
 
         it('should initialize when all arguments are provied', function () {
-            const middleware = this.hyperion(moduleName, api, args);
+            const middleware = this.hyperion(args, api);
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
 
-        it('should initialize without arguments as long as name and api are provided', function () {
-            const middleware = this.hyperion(moduleName, api);
-            expect(middleware).toBeDefined();    // middleware should have been initialized to something
-        });
-
-        it('should initialize without api or arguments as long as name is provided', function () {
-            const middleware = this.hyperion(moduleName);
+        it('should initialize without api as long as arguments is provided', function () {
+            const middleware = this.hyperion(args);
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
     });
