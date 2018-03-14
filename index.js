@@ -1,6 +1,15 @@
 const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
+/**
+ * Creates a express middelware function which can be used to inject
+ * hyperion into all incomning request objects.
+ * 
+ * @param {string[]} args list of comamnd line arguments
+ * @param {string} [api] name for requested api
+ * 
+ * @return {Function} express middlware function
+ */
 module.exports = function (args, api) {
     if (!args || args.length == 0) {
         debug('Missing arguments...');

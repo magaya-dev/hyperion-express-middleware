@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@magaya/hyperion-node": "^2.0.0",
+    "express": "^4.16.3",
     "jasmine": "^3.1.0",
     "mock-require": "^2.0.2"
   }

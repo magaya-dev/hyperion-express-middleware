@@ -9,6 +9,12 @@
             "request": "launch",
             "name": "Jasmine Tests",
             "program": "${workspaceRoot}\\node_modules\\jasmine\\bin\\jasmine"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Integration Tests",
+            "program": "${workspaceRoot}\\spec\\integration\\requesttest.js"
         }
     ]
 }
