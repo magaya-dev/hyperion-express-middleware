@@ -14,18 +14,6 @@ describe('Hyperion Express Middleware', function () {
             this.hyperion = mock.reRequire('../index');
         });
 
-        it('should throw error when no name is provided', function () {
-            let error;
-
-            try {
-                const middleware = this.hyperion(undefined, api, args);
-            } catch (e) {
-                error = e;
-            }
-
-            expect(error).toBeDefined();    // An error should have been thrown
-        });
-
         it('should throw error when empty name is provided', function () {
             let error;
 
@@ -43,7 +31,7 @@ describe('Hyperion Express Middleware', function () {
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
 
-        it('should initialize without arguments as long as name and apie are provided', function () {
+        it('should initialize without arguments as long as name and api are provided', function () {
             const middleware = this.hyperion(moduleName, api);
             expect(middleware).toBeDefined();    // middleware should have been initialized to something
         });
@@ -61,7 +49,7 @@ describe('Hyperion Express Middleware', function () {
             });
 
             const hyperion = mock.reRequire('../index');
-            this.middleware = hyperion(moduleName, api, args);
+            this.middleware = hyperion(args, api);
         });
 
         it('should throw error when called', function () {
@@ -91,7 +79,7 @@ describe('Hyperion Express Middleware', function () {
         it('should populate fields and move on', function () {
             let request = {};
             let movedOn = false;
-            const middleware = this.hyperion(moduleName, api, args);
+            const middleware = this.hyperion(args, api);
 
             middleware(request, {}, function () {
                 movedOn = true;   // This should be called
@@ -106,7 +94,7 @@ describe('Hyperion Express Middleware', function () {
         it('should leave api empty when none is provided', function () {
             let request = {};
             let movedOn = false;
-            const middleware = this.hyperion(moduleName);
+            const middleware = this.hyperion(args);
 
             middleware(request, {}, function () {
                 movedOn = true;   // This should be called
