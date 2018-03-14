@@ -4,7 +4,7 @@
   "description": "An express middleware for hyperion.",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node test"
+    "test": "jasmine"
   },
   "files": [
     "index.js"
