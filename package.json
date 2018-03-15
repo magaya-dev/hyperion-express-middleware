@@ -1,11 +1,11 @@
 {
   "name": "@magaya/hyperion-express-middleware",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An express middleware for hyperion.",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "postinstall": "npm linke @magaya/hyperion-node"
+    "postinstall": "npm link @magaya/hyperion-node"
   },
   "files": [
     "index.js"
