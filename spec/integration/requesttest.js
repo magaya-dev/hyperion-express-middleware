@@ -7,9 +7,10 @@ const middleware = hyperion(['--connection-string=test.magaya.com:6110'], 'livet
 const app = express();
 
 app.use('/test', middleware, (req, res) => {
-    assert.ok(req.dbx);
-    assert.ok(req.algorithm);
-    assert.ok(req.api);
+    assert.ok(req.dbx, 'missing dbx');
+    assert.ok(req.algorithm, 'missing algorithms');
+    assert.ok(req.api, 'missing api');
+    assert.ok(req.dbw, 'missing dbw');
 
     res.status(200).send();
 });
