@@ -1,19 +1,38 @@
-const database = require('./hyper-api');
+const debug = require('debug')('hyperion-express-module');
+const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
-module.exports = function (moduleName, args) {
-    const connection = database({
-            name: moduleName,
-            argv: args
-        });
-    
+/**
+ * Creates a express middelware function which can be used to inject
+ * hyperion into all incomning request objects.
+ * 
+ * @param {string[]} args list of comamnd line arguments
+ * @param {string} [api] name for requested api
+ * 
+ * @return {Function} express middlware function
+ */
+module.exports = function (args, api) {
+    if (!args || args.length == 0) {
+        debug('Missing arguments...');
+        throw new Error('invalid args');
+    }
+
+    debug('Trying to connect through addon...');
+
+    const database = hyperion(args, api);
+
+    debug('Hyperion connected...');
+
     return function (request, response, next) {
-        if (!connection) {
-            throw new Error(`There is no connection to the database for ${moduleName}...`);
+        if (!database) {
+            throw new Error(`there is no connection to the database`);
         }
 
-        request.dbx = connection.dbx;
-        request.algorithm = connection.algo;
-        request.api = connection.api;
+        request.dbx = database.dbx;
+        request.algorithm = database.algorithm;
+
+        if (api) {
+            request.api = database.connection[api];
+        }
 
         next();
     };
