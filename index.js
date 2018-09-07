@@ -28,6 +28,7 @@ module.exports = function (args, api) {
         }
 
         request.dbx = database.dbx;
+        request.dbw = database.dbw;
         request.algorithm = database.algorithm;
 
         if (api) {

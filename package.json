@@ -4,8 +4,7 @@
   "description": "An express middleware for hyperion.",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine",
-    "postinstall": "npm link @magaya/hyperion-node"
+    "test": "jasmine"
   },
   "files": [
     "index.js"
@@ -26,7 +25,8 @@
   },
   "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
   "dependencies": {
-    "debug": "^3.1.0"
+    "debug": "^3.1.0",
+    "@magaya/hyperion-node": "^11.2.0"
   },
   "devDependencies": {
     "express": "^4.16.3",
