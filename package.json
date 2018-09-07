@@ -1,6 +1,6 @@
 {
   "name": "@magaya/hyperion-express-middleware",
-  "version": "0.2.2",
+  "version": "11.2.0",
   "description": "An express middleware for hyperion.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "express"
   ],
   "author": "Magaya Corporation",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/magaya-dev/hyperion-express-middleware.git/issues"
   },
