@@ -1,31 +1,36 @@
 {
-  "name": "hyperion-express-module",
-  "version": "0.0.6",
+  "name": "@magaya/hyperion-express-middleware",
+  "version": "11.2.1",
   "description": "An express middleware for hyperion.",
-  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node test"
+    "test": "jasmine"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcabot21/hyperion-express-middleware.git"
+    "url": "git+https://github.com/magaya-dev/hyperion-express-middleware.git"
   },
   "keywords": [
     "hyperion",
-    "livetrack"
+    "magaya",
+    "express"
   ],
   "author": "Magaya Corporation",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jcabot21/hyperion-express-middleware/issues"
+    "url": "https://github.com/magaya-dev/hyperion-express-middleware.git/issues"
   },
-  "homepage": "https://github.com/jcabot21/hyperion-express-middleware#readme",
+  "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
   "dependencies": {
-    "hyperion-node": "git+https://github.com/magaya-dev/hyperion-node.git"
+    "@magaya/hyperion-node": "^11.2.2",
+    "debug": "^3.1.0"
   },
   "devDependencies": {
-    "jasmine-node": "^1.14.5",
+    "express": "^4.16.3",
+    "jasmine": "^3.1.0",
     "mock-require": "^2.0.2"
   }
 }
