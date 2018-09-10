@@ -10,7 +10,7 @@ const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
  * 
  * @return {Function} express middlware function
  */
-module.exports = function (args, api) {
+const middleware = function (args, api) {
     if (!args || args.length == 0) {
         debug('Missing arguments...');
         throw new Error('invalid args');
@@ -37,4 +37,9 @@ module.exports = function (args, api) {
 
         next();
     };
+};
+
+module.exports = {
+    hyperion: hyperion,
+    middleware: middleware
 };

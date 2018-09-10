@@ -11,10 +11,10 @@ describe('Hyperion Express Middleware', function () {
                 return undefined;
             });
 
-            this.hyperion = mock.reRequire('../index');
+            this.hyperion = mock.reRequire('../index').middleware;
         });
 
-        it('should throw error when missing argumentts', function () {
+        it('should throw error when missing arguments', function () {
             expect(() => this.hyperion()).toThrowError(Error, 'invalid args');
         });
 
@@ -35,7 +35,7 @@ describe('Hyperion Express Middleware', function () {
                 return undefined;
             });
 
-            const hyperion = mock.reRequire('../index');
+            const hyperion = mock.reRequire('../index').middleware;
             this.middleware = hyperion(args, api);
         });
 
@@ -60,7 +60,7 @@ describe('Hyperion Express Middleware', function () {
         beforeEach(function () {
             mock('@magaya/hyperion-node', './fakeperion');
 
-            this.hyperion = mock.reRequire('../index');
+            this.hyperion = mock.reRequire('../index').middleware;
         });
 
         it('should populate fields and move on', function () {
