@@ -1,10 +1,10 @@
 const assert = require('assert');
-const hyperion = require('../../index');
+const { middleware } = require('../../index');
 
-const middlewareWithoutApi = hyperion(['--connection-string=test.magaya.com:6110']);
+const middlewareWithoutApi = middleware(['--connection-string=test.magaya.com:6110']);
 
 assert.ok(middlewareWithoutApi);
 
-const middlewareWithApi = hyperion(['--connection-string=test.magaya.com:6110'], 'livetrack');
+const middlewareWithApi = middleware(['--connection-string=test.magaya.com:6110'], 'livetrack');
 
 assert.ok(middlewareWithApi);

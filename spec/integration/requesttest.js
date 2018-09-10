@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const hyperion = require('../../index');
 
-const middleware = hyperion(['--connection-string=test.magaya.com:6110'], 'livetrack');
+const middleware = hyperion.middleware(['--connection-string=test.magaya.com:6110'], 'livetrack');
 const app = express();
 
 app.use('/test', middleware, (req, res) => {
@@ -22,7 +22,3 @@ http.get('http://localhost:1337/test', res => {
         process.exit(0);
     });
 });
-
-
-
-
