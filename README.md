@@ -6,10 +6,13 @@ Node package containing hyperion middleware for express.
 ```js
 // process.argv needs to include an entry '--connection-string'
 // only the arguments array is mandatory
-const hyperion = require('@magaya/hyperion-express-middleware')(process.argv, 'optionalApiName');
+const { hyperion, middleware } = require('@magaya/hyperion-express-middleware');
 const app = require('express')();
 
-app.use(hyperion);
+app.use(middleware(process.argv, 'optionalApiName'));
+
+// Optionally you can use the hyperion object to create another connection: 
+// const connection = hyperion(process.argv, 'optionalApiName');
 
 // Elsewhere in your router...
 router.route('/test').get((request, response) => {
