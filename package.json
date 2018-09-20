@@ -1,6 +1,6 @@
 {
     "name": "@magaya/hyperion-express-middleware",
-    "version": "11.3.1",
+    "version": "11.3.2",
     "description": "An express middleware for hyperion.",
     "main": "index.js",
     "scripts": {
@@ -25,7 +25,7 @@
     },
     "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
     "dependencies": {
-        "@magaya/hyperion-node": "~11.3.1",
+        "@magaya/hyperion-node": "~11.3.2",
         "debug": "^3.1.0"
     },
     "devDependencies": {
