@@ -40,3 +40,15 @@ In development, you'll need to install the tools that are compatible with the ve
 
 ## Notes
 The second paramenter (`api`) will define which functions are available on the retreived hyperion instance.
+
+Starting with version 11.2 of Magaya, the second parameter can be an object, containing the unique identifier of the application connecting to the database and it's API Key, assigned during installation, for writting purposes.
+
+```js
+const { hyperion, middleware } = require('@magaya/hyperion-express-middleware');
+const app = require('express')();
+
+app.use(middleware(process.argv, {
+    'clientId' : 'extension-example',
+    'apiKey' : '123456'
+}));
+```
