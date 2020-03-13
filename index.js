@@ -32,7 +32,9 @@ const middleware = function (args, api) {
         request.algorithm = database.algorithm;
 
         if (api) {
-            request.api = database.connection[api];
+            // !NOTE(jose): need to check if api is object (then take clientId)
+            const client_id = api.clientId ? api.clientId : api; 
+            request.api = database.connection[client_id];
         }
 
         next();
