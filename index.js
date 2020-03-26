@@ -22,6 +22,17 @@ const middleware = function (args, api) {
 
     debug('Hyperion connected...');
 
+    // Keep only name reference to api
+    // will either be clientId if an object was sent
+    // or api which is a string literal
+    if (api && !typeof api === "string") {
+        if (typeof api.clientId === "string") {
+            api = api.clientId;
+        } else {
+            api = undefined;    // the value in clientId is not valid
+        }
+    }
+
     return function (request, response, next) {
         if (!database) {
             throw new Error(`there is no connection to the database`);
@@ -31,6 +42,7 @@ const middleware = function (args, api) {
         request.dbw = database.dbw;
         request.algorithm = database.algorithm;
 
+        // Try to add api property if possible
         if (api) {
             request.api = database.connection[api];
         }
