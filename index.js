@@ -2,11 +2,19 @@ const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
 /**
+ * @typedef {Object} ApiConfig
+ * @property {string} clientId - Unique name for the extension.
+ * @property {string} apiKey - API key for the extension.
+ * @property {string} scope - Used in case no apiKey is provided, will dictate extension permissions.
+ * @property {string} apiKeyPath - Used in case no apiKey is provided, will dictate where keys are stored.
+ */
+
+/**
  * Creates a express middelware function which can be used to inject
  * hyperion into all incomning request objects.
  * 
  * @param {string[]} args list of comamnd line arguments
- * @param {string} [api] name for requested api
+ * @param {string | ApiConfig} [api] name for requested api
  * 
  * @return {Function} express middlware function
  */
@@ -30,6 +38,7 @@ const middleware = function (args, api) {
             api = api.clientId;
         } else {
             api = undefined;    // the value in clientId is not valid
+            debug('Unable to assign api name based on provided data...');
         }
     }
 
