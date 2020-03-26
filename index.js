@@ -38,6 +38,7 @@ const middleware = function (args, api) {
             api = api.clientId;
         } else {
             api = undefined;    // the value in clientId is not valid
+            debug('Unable to assign api name based on provided data...');
         }
     }
 
