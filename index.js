@@ -4,9 +4,9 @@ const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 /**
  * @typedef {Object} ApiConfig
  * @property {string} clientId - Unique name for the extension.
- * @property {string} apiKey - API key for the extension.
- * @property {string} scope - Used in case no apiKey is provided, will dictate extension permissions.
- * @property {string} apiKeyPath - Used in case no apiKey is provided, will dictate where keys are stored.
+ * @property {string} [apiKey] - API key for the extension.
+ * @property {string} [scope] - Used in case no apiKey is provided, will dictate extension permissions.
+ * @property {string} [apiKeyPath] - Used in case no apiKey is provided, will dictate where keys are stored.
  */
 
 /**
@@ -14,7 +14,7 @@ const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
  * hyperion into all incomning request objects.
  * 
  * @param {string[]} args list of comamnd line arguments
- * @param {string | ApiConfig} [api] name for requested api
+ * @param {string | ApiConfig | {clientId: string, apiKey?: string, scope?: string, apiKeyPath?: string}} [api] name for requested api
  * 
  * @return {Function} express middlware function
  */
@@ -33,7 +33,7 @@ const middleware = function (args, api) {
     // Keep only name reference to api
     // will either be clientId if an object was sent
     // or api which is a string literal
-    if (api && !typeof api === "string") {
+    if (api && !(typeof api === "string")) {
         if (typeof api.clientId === "string") {
             api = api.clientId;
         } else {
