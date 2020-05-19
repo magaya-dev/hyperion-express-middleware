@@ -34,6 +34,7 @@ In development, you'll need to install the tools that are compatible with the ve
 
 | Magaya        | NodeJS        |
 | ------------- | ------------- |
+| v11.3.x      | 12.14.1 [32 bits](https://nodejs.org/dist/v12.14.1/node-v12.14.1-x86.msi) [64 bits](https://nodejs.org/dist/v12.14.1/node-v12.14.1-x64.msi)  |
 | v11.2.x       | 8.11.1 [32 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x86.msi) [64 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x64.msi)  |
 | v11.1.x       | 8.11.1 [32 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x86.msi) [64 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x64.msi)  |
 | v11.0.3       | 8.11.1 [32 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x86.msi) [64 bits](https://nodejs.org/dist/v8.11.1/node-v8.11.1-x64.msi)  |
