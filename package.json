@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jasmine",
-        "postversion": "git push && git push --tags && npm publish --tag beta"
+        "postversion": "git push && git push --tags && npm publish --tag blue"
     },
     "files": [
         "index.js"
