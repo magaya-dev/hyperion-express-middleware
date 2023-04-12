@@ -1,6 +1,6 @@
 {
     "name": "@magaya/hyperion-express-middleware",
-    "version": "11.58.10",
+    "version": "11.58.11",
     "description": "An express middleware for hyperion.",
     "main": "index.js",
     "scripts": {
