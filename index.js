@@ -1,3 +1,7 @@
+const tracer = require('dd-trace').init({
+    // Optional configuration can go here
+    service: 'hyperion-express-middleware'
+});
 const debug = require('debug')('hyperion-express-module');
 const hyperion = require('@magaya/hyperion-node'); debug('Loaded hyperion...');
 
@@ -45,6 +49,11 @@ const middleware = function (args, api) {
     return function (request, response, next) {
         if (!database) {
             throw new Error(`there is no connection to the database`);
+        }
+
+        const span = tracer.scope().active();
+        if (span) {
+            span.setTag('operation', 'hyperion-express-middleware');
         }
 
         request.dbx = database.dbx;
