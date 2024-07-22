@@ -26,7 +26,7 @@
     },
     "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
     "dependencies": {
-        "@magaya/hyperion-node": "12.1.40-blue-tw-stateless-ui.0",
+        "@magaya/hyperion-node": "12.1.41-blue-tw-stateless-ui.0",
         "debug": "4.3.4"
     },
     "devDependencies": {
