@@ -1,6 +1,6 @@
 {
     "name": "@magaya/hyperion-express-middleware",
-    "version": "12.1.50-blue-tw-stateless-ui.0",
+    "version": "12.1.51-blue-tw-stateless-ui.0",
     "description": "An express middleware for hyperion.",
     "main": "index.js",
     "scripts": {
