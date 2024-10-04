@@ -27,11 +27,11 @@
     "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
     "dependencies": {
         "@magaya/hyperion-node": "~11.61.3",
-        "debug": "^4.3.5"
+        "debug": "~4.3.7"
     },
     "devDependencies": {
-        "express": "^4.19.2",
-        "jasmine": "^5.1.0",
+        "express": "~4.21.0",
+        "jasmine": "~5.3.1",
         "mock-require": "^3.0.3"
     }
 }
