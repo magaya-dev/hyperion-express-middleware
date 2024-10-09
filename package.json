@@ -26,7 +26,7 @@
     },
     "homepage": "https://github.com/magaya-dev/hyperion-express-middleware.git#readme",
     "dependencies": {
-        "@magaya/hyperion-node": "~11.60.26",
+        "@magaya/hyperion-node": "~11.60.27",
         "debug": "4.3.4"
     },
     "devDependencies": {
