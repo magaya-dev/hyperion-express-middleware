@@ -30,7 +30,7 @@
         "debug": "4.3.4"
     },
     "devDependencies": {
-        "express": "4.19.2",
+        "express": "4.21.1",
         "jasmine": "4.6.0",
         "mock-require": "3.0.3"
     }
